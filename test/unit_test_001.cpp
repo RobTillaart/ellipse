@@ -42,30 +42,30 @@ unittest(test_constructor)
   fprintf(stderr, "ELLIPSE_LIB_VERSION: %s\n", (char*) ELLIPSE_LIB_VERSION);
 
   ellipse E(1.0, 1.0);
-  fprintf(stderr, "%03.6f\n", E.getA());
-  fprintf(stderr, "%03.6f\n", E.getB());
-  fprintf(stderr, "%03.6f\n", E.getC());
-  fprintf(stderr, "%03.6f\n", E.area());
-  fprintf(stderr, "%03.6f\n", E.circumference());
-  fprintf(stderr, "%03.6f\n", E.perimeter_ref());
-  fprintf(stderr, "%03.6f\n", E.perimeter_Keppler());
-  fprintf(stderr, "%03.6f\n", E.perimeter_Ramanujan1());
-  fprintf(stderr, "%03.6f\n", E.perimeter_Ramanujan2());
-  fprintf(stderr, "%03.6f\n", E.eccentricity());
+  fprintf(stderr, "%03.8f\n", E.getA());
+  fprintf(stderr, "%03.8f\n", E.getB());
+  fprintf(stderr, "%03.8f\n", E.getC());
+  fprintf(stderr, "%03.8f\n", E.area());
+  fprintf(stderr, "%03.8f\n", E.circumference());
+  fprintf(stderr, "%03.8f\n", E.perimeter_ref());
+  fprintf(stderr, "%03.8f\n", E.perimeter_Keppler());
+  fprintf(stderr, "%03.8f\n", E.perimeter_Ramanujan1());
+  fprintf(stderr, "%03.8f\n", E.perimeter_Ramanujan2());
+  fprintf(stderr, "%03.8f\n", E.eccentricity());
   fprintf(stderr, "\n");
 
   E.setA(1.0);
   E.setB(0.5);
-  fprintf(stderr, "%03.6f\n", E.getA());
-  fprintf(stderr, "%03.6f\n", E.getB());
-  fprintf(stderr, "%03.6f\n", E.getC());
-  fprintf(stderr, "%03.6f\n", E.area());
-  fprintf(stderr, "%03.6f\n", E.circumference());
-  fprintf(stderr, "%03.6f\n", E.perimeter_ref());
-  fprintf(stderr, "%03.6f\n", E.perimeter_Keppler());
-  fprintf(stderr, "%03.6f\n", E.perimeter_Ramanujan1());
-  fprintf(stderr, "%03.6f\n", E.perimeter_Ramanujan2());
-  fprintf(stderr, "%03.6f\n", E.eccentricity());
+  fprintf(stderr, "%03.8f\n", E.getA());
+  fprintf(stderr, "%03.8f\n", E.getB());
+  fprintf(stderr, "%03.8f\n", E.getC());
+  fprintf(stderr, "%03.8f\n", E.area());
+  fprintf(stderr, "%03.8f\n", E.circumference());
+  fprintf(stderr, "%03.8f\n", E.perimeter_ref());
+  fprintf(stderr, "%03.8f\n", E.perimeter_Keppler());
+  fprintf(stderr, "%03.8f\n", E.perimeter_Ramanujan1());
+  fprintf(stderr, "%03.8f\n", E.perimeter_Ramanujan2());
+  fprintf(stderr, "%03.8f\n", E.eccentricity());
 
 }
 
