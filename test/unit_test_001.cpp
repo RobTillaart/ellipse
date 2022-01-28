@@ -41,7 +41,7 @@ unittest(test_constructor)
 {
   fprintf(stderr, "ELLIPSE_LIB_VERSION: %s\n", (char*) ELLIPSE_LIB_VERSION));
 
-  ellipse E(1,1);
+  ellipse E(1.0, 1.0);
   fprintf(stderr, "%03.6f\n", E.getA());
   fprintf(stderr, "%03.6f\n", E.getB());
   fprintf(stderr, "%03.6f\n", E.getC());
@@ -54,7 +54,8 @@ unittest(test_constructor)
   fprintf(stderr, "%03.6f\n", E.eccentricity());
   fprintf(stderr, "\n");
 
-  ellipse E(1, 0.5);
+  E.setA(1.0);
+  E.setB(0.5);
   fprintf(stderr, "%03.6f\n", E.getA());
   fprintf(stderr, "%03.6f\n", E.getB());
   fprintf(stderr, "%03.6f\n", E.getC());
