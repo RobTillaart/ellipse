@@ -132,14 +132,14 @@ float ellipse::getC()
 }
 
 
-float getLongRadius()
+float ellipse::getLongRadius()
 {
   if (_a >= _b) return _a;
   return _b;
 }
 
 
-float getShortRadius()
+float ellipse::getShortRadius()
 {
   if (_a >= _b) return _b;
   return _a;
