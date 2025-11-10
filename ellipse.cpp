@@ -210,5 +210,12 @@ float ellipse::angle()
 }
 
 
+float ellipse::ratio()
+{
+  if (_a != 0) return _b / _a;
+  return -1;
+}
+
+
 //  -- END OF FILE --
 

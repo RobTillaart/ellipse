@@ -60,6 +60,7 @@ public:
   //  EXPERIMENTAL
   //  returns the angle if the ellipse was the shadow of a circle.
   float angle();
+  float ratio();
 
 private:
   float _a;

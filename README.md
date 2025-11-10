@@ -105,8 +105,9 @@ Run ellipse_performance.ino example for latest version.
 
 ### Experimental
 
-- **float angle()** returns the angle if the ellipse was the
-shadow of a circle, Returns 0..90°, 0° == circle, 90° == line.
+- **float angle()** returns the angle in degrees if the ellipse was the
+shadow of a circle. Returns 0..90°, 0° == circle, 90° == line.
+- **float ratio()** returns B / A.
 
 
 ## Operation
