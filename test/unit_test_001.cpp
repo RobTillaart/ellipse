@@ -98,7 +98,7 @@ unittest(test_approximation)
 
 unittest(test_isCircle)
 {
-  fprintf(stderr, "E(1.0, 1.0)");
+  fprintf(stderr, "E(1.0, 1.0) \t");
   ellipse E(1.0, 1.0);
   fprintf(stderr, "ECC: %03.8f\n", E.eccentricity());
   assertTrue(E.isCircle());
@@ -106,9 +106,10 @@ unittest(test_isCircle)
 
   E.setA(1.0);
   E.setB(0.1);
+  fprintf(stderr, "E(1.0, 0.1) \t");
   fprintf(stderr, "ECC: %03.8f\n", E.eccentricity());
-  assertTrue(E.isCircle());
-  assertFalse(E.isFlat());
+  assertFalse(E.isCircle());
+  assertTrue(E.isFlat());
 }
 
 
