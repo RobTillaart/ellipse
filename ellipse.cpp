@@ -2,7 +2,7 @@
 //    FILE: ellipse.cpp
 //  AUTHOR: Rob Tillaart
 //    DATE: 2021-10-31
-// VERSION: 0.1.4
+// VERSION: 0.2.0
 // PURPOSE: Arduino library for ellipse maths
 //     URL: https://github.com/RobTillaart/ellipse
 // TRIGGER: https://www.youtube.com/watch?v=5nW3nJhBHL0
@@ -20,7 +20,7 @@ ellipse::ellipse(float a, float b)
 
 //////////////////////////////////////////////////////////////////
 //
-//  unknown - see youtube link.
+//  unknown - see YouTube link.
 //  p = 2 * PI * sqrt((a*a + b*b)/2);
 //
 float ellipse::circumference()
@@ -29,15 +29,15 @@ float ellipse::circumference()
 }
 
 
-float ellipse::perimeter_ref()
+float ellipse::perimeter_reference()
 {
   return perimeter_Ramanujan2();
 }
 
 
-float ellipse::perimeter_Keppler()
+float ellipse::perimeter_Kepler()
 {
-  //  Keppler
+  //  Johannes Kepler (1571 - 1630)
   float p = 2 * PI * (_a + _b) / 2;   //  very fast for a ~ b
   return p;
 }
@@ -45,7 +45,8 @@ float ellipse::perimeter_Keppler()
 
 float ellipse::perimeter_Ramanujan1()
 {
-  //  Srinivasa Ramanujan I - very good
+  //  Srinivasa Ramanujan (1887-1920)
+  //  algorithm I - very good
   //  float p = PI * (3 * (_a + _b) - sqrt((3 * _a +_b)*(_a + 3 * _b)));
   float a3 = 3 * _a;
   float b3 = 3 * _b;
@@ -61,20 +62,57 @@ float ellipse::perimeter_Parker()
   //  not symmetric. _a should be longest.
   float a = (_a > _b) ? _a : _b;
   float b = (_a > _b) ? _b : _a;
-  float t = sqrt(269 * a * a + 667 * a * b + 371 * b * b);  //  269=prime 667=23*29  371=7*53
-  float p = PI * ((53.0/3.0) * a + (717.0/35.0) * b - t); 
+  //  269 = prime 667 = 23*29  371 = 7*53
+  float t = sqrt(269 * a * a + 667 * a * b + 371 * b * b);
+  float p = PI * ((53.0/3.0) * a + (717.0/35.0) * b - t);
   return p;
 }
 
 
 float ellipse::perimeter_Ramanujan2()
 {
-  //  Srinivasa Ramanujan II - extremely good
+  //  Srinivasa Ramanujan (1887-1920)
+  //  algorithm II - extremely good
   float x = _a - _b;
   float y = _a + _b;
   float h3 = 3 * (x * x) / (y * y);
   float p = PI * y * ( 1 + h3 / (10 + sqrt(4 - h3)));
   return p;
+}
+
+
+//  video @ 7:00
+// float ellipse::perimeter_rough()
+// {
+  // //  fast, only for approximations.
+  // //  error < 10% for b/a < 10.
+  // float x = _a * _a + _b * _b;
+  // float p = 2 * PI * sqrt(x / 2);
+  // return p;
+// }
+
+
+//  video @ 12:00
+float ellipse::perimeter_Parker_fast()
+{
+  //  fast, only for approximations.
+  //  error < 5% for b/a < 75.
+  float p = PI * ((6.0/5.0) * _a + (3.0/4.0) * _b);
+  return p;
+}
+
+
+//  polynome order 2, approximation of Ramanujan.
+//  assumes _b < _a.
+float ellipse::perimeter_polynome()
+{
+  //  found with spreadsheet
+  float p = 1.15106013377774;
+  float q = 1.23383579382407;
+  float r = 3.9344408776573;
+  float ratio = _b / _a;
+  float peri = _a * ((p * ratio + q) * ratio + r);
+  return peri;
 }
 
 
@@ -119,7 +157,7 @@ void ellipse::setA(float a)
 void ellipse::setB(float b)
 {
   _b = abs(b);
-};
+}
 
 
 float ellipse::getA()
@@ -139,6 +177,15 @@ float ellipse::getC()
   float e = eccentricity();
   if (_a > _b) return e * _a;
   return e * _b;
+}
+
+
+float ellipse::getH()
+{
+  float u = _a - _b; u *= u;
+  //  if (u == 0) return 0;
+  float v = _a + _b; v *= v;
+  return u / v;
 }
 
 

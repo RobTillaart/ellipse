@@ -47,7 +47,7 @@ unittest(test_constructor)
   fprintf(stderr, "%03.8f\n", E.area());
   fprintf(stderr, "%03.8f\n", E.circumference());
   fprintf(stderr, "%03.8f\n", E.perimeter_ref());
-  fprintf(stderr, "%03.8f\n", E.perimeter_Keppler());
+  fprintf(stderr, "%03.8f\n", E.perimeter_Kepler());
   fprintf(stderr, "%03.8f\n", E.perimeter_Ramanujan1());
   fprintf(stderr, "%03.8f\n", E.perimeter_Ramanujan2());
   fprintf(stderr, "%03.8f\n", E.eccentricity());
@@ -61,7 +61,7 @@ unittest(test_constructor)
   fprintf(stderr, "%03.8f\n", E.area());
   fprintf(stderr, "%03.8f\n", E.circumference());
   fprintf(stderr, "%03.8f\n", E.perimeter_ref());
-  fprintf(stderr, "%03.8f\n", E.perimeter_Keppler());
+  fprintf(stderr, "%03.8f\n", E.perimeter_Kepler());
   fprintf(stderr, "%03.8f\n", E.perimeter_Ramanujan1());
   fprintf(stderr, "%03.8f\n", E.perimeter_Ramanujan2());
   fprintf(stderr, "%03.8f\n", E.eccentricity());
@@ -71,4 +71,6 @@ unittest(test_constructor)
 
 unittest_main()
 
-// --------
+
+//  -- END OF FILE --
+

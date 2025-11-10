@@ -8,11 +8,13 @@ ellipse	KEYWORD1
 area	KEYWORD2
 circumference	KEYWORD2
 
-perimeter_ref	KEYWORD2
-perimeter_Keppler	KEYWORD2
+perimeter_reference	KEYWORD2
+perimeter_Kepler	KEYWORD2
 perimeter_Parker	KEYWORD2
 perimeter_Ramanujan1	KEYWORD2
 perimeter_Ramanujan2	KEYWORD2
+perimeter_Parker_fast	KEYWORD2
+perimeter_polynome	KEYWORD2
 
 eccentricity	KEYWORD2
 
@@ -24,6 +26,7 @@ setB	KEYWORD2
 getA	KEYWORD2
 getB	KEYWORD2
 getC	KEYWORD2
+getH	KEYWORD2
 
 getLongRadius	KEYWORD2
 getShortRadius	KEYWORD2
