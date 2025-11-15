@@ -35,6 +35,7 @@ void setup()
     test_perimeter_Parker();
     test_perimeter_Parker_fast();
     test_perimeter_polynome();
+    test_perimeter_binomial();
     test_eccentricity();
   }
 
@@ -126,6 +127,21 @@ void test_perimeter_polynome()
 {
   start = micros();
   f = E.perimeter_polynome();
+  stop = micros();
+  Serial.print("\tTIME: ");
+  Serial.print(stop - start);
+  Serial.print("\tCIRCUMFERENCE: ");
+  Serial.print(f, 4);
+  Serial.print("\t");
+  Serial.println(__FUNCTION__);
+  delay(10);
+}
+
+
+void test_perimeter_binomial()
+{
+  start = micros();
+  f = E.perimeter_binomial();
   stop = micros();
   Serial.print("\tTIME: ");
   Serial.print(stop - start);

@@ -13,11 +13,13 @@ perimeter_Kepler	KEYWORD2
 perimeter_Parker	KEYWORD2
 perimeter_Ramanujan1	KEYWORD2
 perimeter_Ramanujan2	KEYWORD2
+perimeter_binomial	KEYWORD2
+
 perimeter_Parker_fast	KEYWORD2
 perimeter_polynome	KEYWORD2
 
 eccentricity	KEYWORD2
-
+ratio	KEYWORD2
 isCircle	KEYWORD2
 isFlat	KEYWORD2
 

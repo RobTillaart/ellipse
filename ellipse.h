@@ -16,7 +16,7 @@
 class ellipse
 {
 public:
-  ellipse(float a, float b);      //  a >= b
+  ellipse(float a, float b);     //  a >= b
   float area();
   float circumference();         //  Ramanujan1
 
@@ -27,7 +27,7 @@ public:
   float perimeter_Ramanujan1();  //  fast, good
   float perimeter_Parker();      //  slow, good
   float perimeter_Ramanujan2();  //  slow, best over wide range
-
+  float perimeter_binomial();    //  very slow, very good.
 
   //  not as good, mainly for approximations.
   //  error < 2.5% for a/b < 14
@@ -39,11 +39,10 @@ public:
 
   //  ATTRIBUTES
   float eccentricity();
-
+  float ratio();
   //  convenience functions.
   bool  isCircle(float epsilon = 0.0);
   bool  isFlat();       //  factor 4 ==>  < 15°
-
 
   void  setA(float a);
   void  setB(float b);
@@ -60,7 +59,7 @@ public:
   //  EXPERIMENTAL
   //  returns the angle if the ellipse was the shadow of a circle.
   float angle();
-  float ratio();
+
 
 private:
   float _a;

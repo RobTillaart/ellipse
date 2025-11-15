@@ -10,7 +10,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - renamed **perimeter_Kepler()** Kepler with one p is correct.
 - renamed **perimeter_reference()** for readability.
 - add **float perimeter_Parker_fast()** for completeness.
-- add **float perimeter_polynome2()** quadratic polynome approximation.
+- add **float perimeter_polynome()** quadratic polynome approximation.
+- add **float perimeter_binomial()** binomial approximation.
 - add **float getH()** extra attribute.
 - add **float ratio()** extra attribute.
 - update GitHub actions

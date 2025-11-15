@@ -81,6 +81,44 @@ float ellipse::perimeter_Ramanujan2()
 }
 
 
+//  optimized performance
+float ellipse::perimeter_binomial()
+{
+  float x = _a - _b;
+  float y = _a + _b;
+  float h = (x * x) / (y * y);
+  float hh = h;
+  float p =  1 + hh * (1.0/4.0);
+  hh *= h;  p += hh * (1.0/ 64.0);
+  hh *= h;  p += hh * (1.0/ 256.0);
+  hh *= h;  p += hh * (25.0/16384.0);
+  hh *= h;  p += hh * (49.0/65536.0);
+  hh *= h;  p += hh * (441.0/1048576.0);
+  hh *= h;  p += hh * (1089.0/4194304.0);
+  //  7 terms seems adequate for float precision.
+  //  additional terms possible (see math is fun link),
+  return p * PI * (_a + _b);
+}
+
+
+//  reference binomial()
+// float ellipse::perimeter_binomial()
+// {
+  // float x = _a - _b;
+  // float y = _a + _b;
+  // float h = (x * x) / (y * y);
+  // float p =  h /4 +
+            // (h*h)/64 +
+            // (h*h*h)/256 +
+            // (25*h*h*h*h)/16384 +
+            // (49*h*h*h*h*h)/65536 +
+            // (441*h*h*h*h*h*h)/1048576 +
+            // (1089*h*h*h*h*h*h*h)/4194304 +
+            // 1;
+  // return p * PI * (_a + _b);
+// }
+
+
 //  video @ 7:00
 // float ellipse::perimeter_rough()
 // {
@@ -126,10 +164,20 @@ float ellipse::area()
 
 float ellipse::eccentricity()
 {
-  if (_a == _b) return 0;  //  quick circle check.
+  if (_a == _b) return 0;  //  circle check
+  if (_a ==  0) return 1;  //  DIV_ZERO check
   float x = _a * _a - _b * _b;
-  if (x < 0) x = -1 * x;
+  if (x < 0) x = -x;
   return sqrt(x)/ _a;
+  //  alternative formula has same nr of operator
+  //  float x = sqrt(1 - (_b*_b)/(_a*_a));
+}
+
+
+float ellipse::ratio()
+{
+  if (_a == 0) return -1;
+  return _b / _a;
 }
 
 
@@ -207,13 +255,6 @@ float ellipse::angle()
 {
   float c = (_b < _a) ? _b/_a : _a/_b;
   return acos(c) * (180 / PI);
-}
-
-
-float ellipse::ratio()
-{
-  if (_a != 0) return _b / _a;
-  return -1;
 }
 
 
